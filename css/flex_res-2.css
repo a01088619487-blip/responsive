@@ -1,0 +1,49 @@
+@import url("reset.css");
+.container{
+    width: 90%;
+    max-width: 1200px;
+    min-width: 300px;
+    margin: 50px auto;
+    /* 중간정렬~ */
+    padding: 3%;
+    background-color: antiquewhite;
+
+}
+
+.card-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: red;
+/* 각각의 너비값을 줘야함! */
+/* flex-wrap: wrap; 넘치는애들을
+밑으로 내려준다 
+그런데 gap이 있어서  calc6을 안따라가고 
+gap크기를[gap크기에 따라 빼기도 달라짐]
+포함해서 5개로 나눠짐
+그래서 ((100%-50px))/6*/
+}
+.card-list li{
+    width: calc((100% - 50px)/ 6);
+    padding: 3%;
+    background-color: aqua;
+}
+
+
+@media (max-width :768px){
+    .card-list li{
+        width: calc((100% - 40px) / 5);
+    }
+}
+@media (max-width :480px){
+    .card-list li{
+        width: calc((100% - 10px) / 2);
+    }
+}
+@media (max-width :390px){
+    .card-list li{
+        width: 100%;
+    }
+}
+
+/* ※calc을 쓸때는 연산자 띄어서 사용해야 적용된다 */

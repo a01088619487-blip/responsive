@@ -1,0 +1,86 @@
+@import url(reset.css);
+
+.box-all{
+    width: 90%;
+    max-width: 700px;
+    min-width: 250px;
+    background-color: rgb(3, 3, 3);
+    margin:auto; 
+    /* 가운데.. */
+    padding: 3%;
+    /* 백그라운드안에 잇는 사진과 여백줌 */
+}
+
+.card li{
+    display: flex;
+    /* 세로정렬~ */
+    align-items: center;
+    background-color: #fff;
+    gap: 2%;
+    
+
+}
+
+.b-img,.box-text{
+    width: 50%;
+}
+
+.box-text{
+    h3{
+        display: flex;
+        color: rgb(41, 0, 80);
+        font-size: 23px;
+        justify-content: center;}
+        
+    p{
+        display: flex;
+        color: rgb(167, 228, 127);
+        font-size: 17px;
+        justify-content: center;
+     
+    }
+
+}
+
+
+@media (max-width:768px) {
+    .card-text h3{
+        font-size: 16px;
+
+    }
+    .card-text p{
+        font-size: 14px;
+    }
+    
+}
+
+@media (max-width:480px) {
+    .card li{
+        flex-direction: column;
+    }
+    .b-img,.card-txt{
+    width: 100%;
+}
+.card-txt{
+    padding: 2%;
+    
+}
+}
+
+/* 잘안됫던거 
+
+
+
+
+
+
+ @media (max-width:480px) {
+    .card li{
+        flex-direction: column;
+    }
+    .b-img,.card-txt{
+    width: 100%; 
+    추후 b-img를  박스이름을 바꾸고
+    여기에는 안바꾼거 그로인하여 인식 불가
+
+}*/

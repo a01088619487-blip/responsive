@@ -17,7 +17,7 @@ html{
 }
 
 h1{
-    /* display: none; */
+    display: none;
     font-size: 3.2rem;
     /*  vw는 글자도 같이 작아진다 근데 글자는 
     반응형하면 폰트사이즈가 엄청 작아져서 안보인ㄷㅏㅠ
@@ -55,4 +55,4 @@ h4{
         /* overflow: hidden; */
     }
     
-}media
+}
