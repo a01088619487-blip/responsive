@@ -1,0 +1,82 @@
+@import url("reset.css");
+body {
+  background: url("../images/bg0.jpg") no-repeat;
+  background-size: cover;
+}
+h1{
+    font-size: 72px;
+}
+
+h2 {
+  display: none;
+}
+
+h3 {
+  display: none;
+}
+
+h4{
+    display: none;
+}
+.box{
+    width: 80%;
+    /* 너비의 80먹고잇엉 */
+    max-width: 1000px;
+    min-width: 290px;
+    height: 300px;
+    margin: auto;
+    background-color: darkseagreen;
+}
+/* px하는 순간 그대로 유지함 그래서 반응형으로 바꿀려면  */
+
+/* 반응형 */
+/* 너비가 1200px일때 */
+@media (max-width: 1200px) {
+    h1{
+    font-size: 48px;
+    color: red;
+}
+
+  body {
+    background: url("../images/bg0.jpg");
+  }
+}
+/* 너비가 1000px일때 */
+@media (max-width: 1000px) {
+  body {
+    background: url("../images/bg1.jpg");
+  }
+}
+
+/* 너비가 768px일때 */
+@media (max-width: 768px) {
+  body {
+    background: url("../images/bg2.jpg");
+  }
+  /* h2 보이게 */
+  h2 {
+    display: block;
+  }
+}
+
+/* 너비가 390px일때 */
+@media (max-width: 390px) {
+        h1{
+    font-size: 24px;
+}
+  body {
+    background: url("../images/bg3.jpg");
+  }
+  /* h3 보이게 */
+  h3 {
+    display: block;
+  }
+  h2 {
+    display: none;
+  }
+  h4{
+    display: block;
+    padding: 20px;
+    background-color: darkgrey;
+  }
+}

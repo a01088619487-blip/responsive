@@ -1,0 +1,58 @@
+@import url("reset.css");
+body{
+    background-color: cadetblue;
+}
+
+html{
+    font-size: 10px;
+    /* hrml 폰트를 따라가는게 rem */
+
+}
+
+.box{
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    min-width: 250px;   
+}
+
+h1{
+    /* display: none; */
+    font-size: 3.2rem;
+    /*  vw는 글자도 같이 작아진다 근데 글자는 
+    반응형하면 폰트사이즈가 엄청 작아져서 안보인ㄷㅏㅠ
+    그래서 하고싶으면 따로 만들어야함 모바일h1에 따로설정
+    */
+    /* hrml 폰트를 따라가는게 rem */
+    
+}
+
+h2{
+    font-size: 2.8rem;
+}
+
+h3{
+    font-size: 1.8rem;
+}
+
+h4{
+    font-size: 1.4rem;
+}
+
+/* 태블릿 */
+@media (max-width: 768px) {
+    html{
+        font-size: 8px;
+    }
+}
+
+
+/* 모바일 */
+@media (max-width : 390px) {
+
+    .box{
+        border-radius: 50%;
+        /* overflow: hidden; */
+    }
+    
+}media
