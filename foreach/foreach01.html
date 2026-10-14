@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>forEach()</title>
+  </head>
+  <body>
+    <script>
+      const fruits = ["사과", "바나나", "포도", "망고", "수박"];
+      console.log(fruits);
+      // fruits.forEach(function(fruits,index){    })이걸 화살표함수로
+      fruits.forEach((fruits, index) => {
+        console.log(fruits); //따로 나오는지 확인하기
+        // index++ 이렇게 써도 순서에 0123이 아닌 1234가 된다
+        console.log(index);
+
+        document.write(`<p>${index + 1}${fruits}</p>`);
+        //숫자배열 을하고싶으면 ((fruits,index)<-index 추가하면됨
+      });
+    </script>
+  </body>
+</html>

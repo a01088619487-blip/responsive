@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>foreach-2</title>
+  </head>
+  <body>
+    <ul id="fruitList">
+      <!-- js출력 -->
+      <!-- <li>1.사과</li>
+       <li>2.바나나</li>
+       <li>3.포도/li>
+       <li>4.망고</li>
+       <li>5.수박</li>
+       <li>6.딸기</li>
+       <li>7.메론</li>
+       <li>7.애플망고</li> -->
+    </ul>
+
+    <script>
+      //더미데이터
+      const list = document.querySelector("#fruitList");
+      const fruits = [
+        "사과",
+        "바나나",
+        "포도",
+        "망고",
+        "수박",
+        "딸기",
+        "메론",
+        "애플망고",
+        "망고스틴",
+      ];
+      console.log(fruits);
+      fruits.forEach((item, index) => {
+        console.log(item, index);
+        list.innerHTML += `<li>${index + 1}.${item}</li>`;
+      });
+    //  += 이거에대해 잘 알아두깅
+      //이걸 해두면 이제 li이에 일일이 하나하나 추가 안해도됨! 
+    // const 에잇는 fruits에 추가하면 깔끔하게 들어감!
+// 화살표 함수 잘 배워두깅..
+    </script>
+  </body>
+</html>

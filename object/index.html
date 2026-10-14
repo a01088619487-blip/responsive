@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체</title>
+  </head>
+  <body>
+    <!-- 객체 란? 여러가지 정보를 하나로 묶어 놓은것 -->
+    <!-- 내장객체 란? 자바스크립트가 미리 만들어 놓은 객체 -->
+    <!-- 내장객체엔 Date ,Array(정보들을 묶어놓은객체 [상품,학색]) , String(글자수를 알수잇음), Math(수학의 정수 반올림등등..) -->
+    <!-- 객체를 사용할때마다 (앞에는 무조건 대문자로 사용해야함)
+  -->
+    <script>
+      //1. String
+      const str = "Hello world";
+      console.log(str);
+      console.log(str.length);
+      // length :내장되어잇는 속성이며 속성은 문자 길이에 대한 속성 (빈공간까지 포함)
+      console.log(str.toUpperCase());
+      // toUpperCase : method [속성이 아님 메서드임] 대문자로 변경 기능
+      console.log(str.includes("Bay"));
+      // includes : 참 거짓을 알수잇는 includes안에 해당하는 내용이 있는지 없는지 확인하는 메서드속성
+
+      // 메서드와 속성에 대한 차이점 알아보기
+
+      // 2. Array  [배열]
+      const arr = [1, 2, 3, 4];
+      console.log(arr);
+      console.log(arr.length);
+      console.log(arr.push(5));
+      // push :배열에 추가로 집어넣는 메서드?
+      console.log(arr); //push로 인하여 [1,2,3,4,5]로 바뀜
+      console.log(arr.join("/")); // join으로 인하여 출력이 1/2/3/4/5
+
+      // 3.Date [객체]
+      const today = new Date();
+      console.log(today);
+      console.log(today.getMonth()+1); //현재 월 [월 0부터 출력하기 때문에 +1 추가해야함 ]
+      console.log(today.toDateString());//요일 월 일 년도 이렇게 나옴 이건 근데 외국식
+      console.log(today.toLocaleDateString());//년 월 일 로 출력 
+      console.log(today.getFullYear());//년도 출력
+
+      // 4. Math [수학객체]
+      console.log(Math.PI); //원주율 파이값 3.141592653589793 출력
+      console.log(Math.max(10,23,500,20)); //500 출력  값안에 제일 큰숫자를 빼내는거
+      console.log(Math.min(10,23,500,20));//10 출력  값안에 제일 작은숫자를 빼내는거
+      console.log(Math.random());// 0~1 사이에있는 난수  랜덤으로 출력함당[1은 포함하지않는다]
+      
+      
+      
+      
+      
+      
+      
+
+      
+    </script>
+  </body>
+</html>
