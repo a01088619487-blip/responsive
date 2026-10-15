@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>함수</title>
+</head>
+<body>
+    <script>
+        // 함수 : 동작해야 할 기능을 묶은 명령
+        // alert()[알림] 자바스크림트에 포함되어있는 여러 함수 중 하나아다=>내장함수
+        //내가 만드는 함수
+        // 두수를 더하는 함수
+        //(a ,  b,c, d) 매개변수 : 함수가 값을 전달하는 변수
+        function addNum(a ,  b,c, d){
+            console.log("함수 호출");//기능만 있어서 찍혀잇지않음 그래서 function에 나가서 'addNum()'추가하여 호출
+            
+            // 실행코드
+            let sum = a + b + c +d;
+            document.write(`${sum}<br>`);
+        }
+        addNum(1,10,20,40) //인수 : 함수 호출 할때 전달하는 실제값
+        addNum(2,20,10,20)
+        addNum(3,50,30,10)
+        addNum(); //값이 없어서 undefined
+    </script>
+    
+</body>
+</html>

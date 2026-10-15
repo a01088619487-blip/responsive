@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button style="color: rgb(253, 0, 0);" onclick="sayHi()">클릭</button>
+    <!-- 버튼을 클릭하면 saHi라는 함수가 실행 -->
+     <button onclick="alert()">알림창 클릭</button>
+     <!-- 내장함수라 script 할 필요가 없다 -->
+    <script>
+        function sayHi(){
+            console.log("안녕");
+            
+        }
+        function greet(username , age , gu){
+            console.log("확인");
+            
+            document.write(`${username}님 나이는 ${age} 사는 동은 ${gu} 환영합니다.<br>`)
+        }
+        
+        greet("김다운" ,20, "달서구")
+        greet("홍길동" , 30 ,"중구")
+        greet("빙그레",40 ,"남구")
+    </script>
+    
+</body>
+</html>

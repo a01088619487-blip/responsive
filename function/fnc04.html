@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>버튼색 내부에 onclick 넣어서 사용하는법</title>
+  </head>
+  <body>
+    <button id="skyBtn" onclick="changeColor('skyblue')">하늘색</button>
+    <button id="pink" onclick="changeColor('pink')">핑크색</button>
+    <button id="yellow"onclick="changeColor('yellow')">노란색</button>
+    <button id="blue"onclick="changeColor('blue')">파란색</button>
+    <script>
+      //   색변경 함수
+      function changeColor(color) {
+        console.log(color);
+        document.body.style.backgroundColor = color;}
+        
+    </script>
+  </body>
+</html>

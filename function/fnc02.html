@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="colorBtn">색 바꾸기</button>
+    <script>
+        //색변수
+        function changeColor(){
+            document.body.style.backgroundColor = "skyblue";}
+        
+            
+        const colorBtn = document.querySelector("#colorBtn");
+        //document.querySelector("#colorBtn").addEventListener("")
+        // .querySelector 랑 getElementById 쓸수잇음. 하지만 query를 많이쓰임.
+        //querySelector의 찾는 방식 : ID,Cass,태그 등 CSS선택자 모두 가능
+        //querySelector의 괄호 안 작성법 : "#00",".000","button"등
+        //querySelector의 유연성 가장 좋음
+        // 버튼 클릭하면 changeColor 함수 실행
+        colorBtn.addEventListener("click",changeColor);
+        //colorBtn.addEventListener("click",document.body.style.backgroundColor = "skyblue";});
+
+    </script>
+    
+</body>
+</html>
