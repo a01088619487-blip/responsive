@@ -15,7 +15,6 @@
       /* 서브메뉴에 active클래스를 더해지게 할거다 on기능? */
       /* .submenu.show{ }
          */
-     
     </style>
   </head>
   <body>
@@ -28,8 +27,14 @@
       const menu = document.querySelector(".menu");
       const submenu = document.querySelector(".submenu");
       menu.addEventListener("click", function () {
-        submenu.classList.toggle("active");
-        // 드롭다운(toggle)
+        // submenu.classList.toggle("active"); // 드롭다운(toggle)
+        //위에잇는 toggle기능 대신 쓰는법
+        if (submenu.classList.contains("active")) {
+          submenu.classList.remove("active");
+        } else {
+          submenu.classList.add("active");
+        }
+        // 클래스속성중에 있는지 없는지 show 확인하기
       });
     </script>
   </body>
