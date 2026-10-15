@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <!-- Link Swiper's CSS  이링크가 있어야 쓸수잇다잉-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.css"
+    />
+
+    <!-- Swiper JS 자바스크립기능코드 줄겡 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.js"></script>
+
+    <!-- Demo styles -->
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        background: #000;
+        font-family:
+          Helvetica Neue,
+          Helvetica,
+          Arial,
+          sans-serif;
+        font-size: 14px;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #444;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Swiper -->
+    <div class="swiper visualSwiper">
+      <!-- swiper앞에는 건들면 안됌 뒤에는 건들여도됨 건들이게되면...
+       const swiper=new Swiper("")<-여기내용도 바꿔줘야함 -->
+      <div class="swiper-wrapper">
+        <!-- 여기 스와이퍼 웨퍼 사이드는 절대로 건들지말것 
+         건들고 싶ㅇ으면class="swiper-slide sw-1<-이렇게 추가는괜찮다  -->
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+        <div class="swiper-slide">Slide 6</div>
+        <div class="swiper-slide">Slide 7</div>
+        <div class="swiper-slide">Slide 8</div>
+        <div class="swiper-slide">Slide 9</div>
+      </div>
+     <!-- Navigation -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+     
+      <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+
+    </div>
+
+    <!-- Initialize Swiper -->
+    <script>
+
+        //  var swiper = new Swiper엿는데 이건 옛날거라 const로 바꿈
+      const swiper = new Swiper(".visualSwiper", {
+         spaceBetween: 10,
+        //  스와이프 간격
+         slidesPerView: 4,
+        //  스와이프 화면에 나오는 갯수
+        navigation: {  
+          nextEl: ".swiper-button-next",
+          //   e다음엘리메인터는 누가 적용되는가~
+          prevEl: ".swiper-button-prev",
+        },
+
+        pagination: {  
+          el: '.swiper-pagination', 
+          dynamicBullets: true,
+        }
+
+
+        
+      });
+    </script>
+  </body>
+</html>
