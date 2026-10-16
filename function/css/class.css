@@ -1,0 +1,65 @@
+@import url("reset.css");
+
+.contain{
+    position: relative;
+    /* open박스 기준을 도와줌 */
+    width: 500px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: cadetblue;
+    
+}
+
+.contain img{
+    width: 100%;
+    /* padding값으로 인해 460됨 */
+    /* 없으면 500!!   */
+    /* 왜?~  box-sizing: border-box; 기준 */
+    display: block;
+    /* 사진밑줄에 영역을 없애쥰덩 */
+
+}
+/* 버튼  */
+.over{
+    padding: 10px;
+    border:  0;
+    border-radius: 5%;
+    background-color: rgba(255, 255,255, 0.3);
+
+}
+.over:hover{
+    background-color: rgba(255, 255,255,0.8);
+    cursor: pointer;
+
+}
+.contain > .over{
+    /* contain안에! over  (바로 밑에 자식까지만 open까지 */
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+/* 상세보기 */
+.detail{
+    display: none;
+    padding: 15px;
+    background-color: darkolivegreen;
+}
+
+.detail p{
+    margin-bottom: 20px;
+}
+
+/* 상세설명닫기 버튼 */
+.detail .over{
+    display: block;
+    /* 이게 안되어잇으면 마진이 안먹음 */
+    margin-left: auto;
+}
+
+.detail.over:hover{
+    /* ditail박스 안에 over */
+    background-color: rgba(255, 255,255,0.8);
+    cursor: pointer;
+
+}

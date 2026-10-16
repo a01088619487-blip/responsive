@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>classList 속성</title>
+    <style>
+      .box {
+        width: 300px;
+        padding: 30px;
+        margin-bottom: 20px;
+        background-color: lightgray;
+      }
+      /* 빨간색 클래스 .box..red 해도됨 */
+      .red {
+        background-color: red;
+        color: #fff;
+      }
+      /* 파란색 클래스 */
+      .bule {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        color: #fff;
+        border-radius: 50%;
+        border: 5px double yellow;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box" id="myBox">안녕하세요!</div>
+    <!-- class Add [더하기] -->
+    <button id="addBtn">빨간색 추가</button>
+    <!-- remove [삭제] -->
+    <button id="removeBtn">빨간색 삭제</button>
+    <!-- toggle [추가하고 다시 원래대로] -->
+    <button id="toggleBtn">빨간색을 더하고.삭제</button>
+    <!-- if else [참거짓] -->
+    <button id="checkBtn">빨간색 확인</button>
+
+    <script>
+      //HTML에서 요소를 가져오기
+      const box = document.querySelector("#myBox");
+      //   console.log(box); 확인완
+      const addBtn = document.querySelector("#addBtn");
+      //   추가버튼
+      addBtn.addEventListener("click", () => {
+        box.classList.add("red");
+        // 클래스이름만 적으면됨 클래스리스트가 있어서 .red 안해도됨
+      });
+      const removeB = document.querySelector("#removeBtn");
+      removeB.addEventListener("click", () => {
+        // rempveB 이건 내가 만드는 박스라서 removeBtn 까지 안적어도됨
+        box.classList.remove("red");
+      });
+      //   더하고 삭제
+      const toggleB = document.querySelector("#toggleBtn");
+      toggleB.addEventListener("click", () => {
+        // box.classList.toggle("red");
+        box.classList.toggle("bule");
+      });
+      //  클래스가 잇는지 없는지 확인하는 참값!
+      const checkB = document.querySelector("#checkBtn");
+      //HTML에서 아이디가 checkBtn인 요소를 찾아서 checkB라는 상자(변수)에 담기
+      checkB.addEventListener("click", () => {
+        // 방금 찾은 버튼(checkB)에 클릭(click) 이벤트를 등록
+        if (box.classList.contains("red")) {
+            // 조건문 (if): box라는 요소의 클래스 목록에 "red"라는 클래스가 포함되어 있는지(contains) 확인
+            box.classList.remove("red");
+            // 만약 "red" 클래스가 들어있다면, box.classList.remove("red");를 실행해서 "red" 클래스를 제거
+        } else {
+            // console.log("없다"); 콘솔 확인 완
+          box.classList.add("red");
+        //   그렇지 않다면 (else): 즉, box에 "red" 클래스가 들어있지 않다면 box.classList.add("red");를 실행해서 "red" 클래스를 추가
+        }
+      });
+    </script>
+  </body>
+</html>
