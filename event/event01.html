@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event 종류</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: brown;
+      }
+
+      .box.active {
+        width: 500px;
+        height: 500px;
+        background-color: yellow;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1. 이벤트 연결 -->
+    <button id="btn">눌러보세요</button>
+    <!-- 2. 입력 이벤트 input -->
+    <input type="text" id="inputName" placeholder="이름을 입력하세요" />
+    <!-- 3. form 제출 이벤트 submit -->
+    <form id="myForm">
+      <input id="userEmail" type="text" placeholder="이메일을 입력하세요." />
+      <button type="submit">제출</button>
+      <!-- submit버튼에 제출하는 기능이다-->
+    </form>
+    <!-- 4. 마우스 이벤트 -->
+    <div class="box"></div>
+    <!-- 5. 키보드 이벤트 -->
+    <input type="text" id="keyInput" placeholder="아무 키나 눌러보세요" />
+
+    <script>
+      // 1. 이벤트 연결
+      const btn = document.querySelector("#btn");
+      btn.addEventListener("click", () => {
+        console.log("click");
+        btn.style.color = "red";
+      });
+
+      // 2.입력 이벤트 input
+      const userName = document.querySelector("#inputName");
+      console.log(userName);
+      userName.addEventListener("input", () => {
+        // 유저네임 입력창에 찍으면~
+        console.log(userName.value);
+        // 유저네임에 입력된 값을 알고싶다
+      });
+
+      // 3. form 제출 이벤트
+      const form = document.querySelector("#myForm");
+      //    <form id="myForm">
+      //     <input type="text" placeholder="이메일을 입력하세요.">
+      //     <button type="submit">제출</button> 이걸 할꺼번에 제출하기 위해 만들꼬임
+      form.addEventListener("submit", (event) => {
+        console.log(event);
+        // console 확인하면 번쩍 하고 사라짐 :0 기본적으로 태어나는 기능이라 없애주고 해야함
+        event.preventDefault();
+        // preventDefault 원래 행동기능을 막아주는 메서드
+        // event란 매개체를 안받아오면 실행이 불가 그러니 꼬옥 적어둘껏(이름은 'event'or 'e')
+        console.log("폼이 제출되었습니다");
+        const userEmail = document.querySelector("#userEmail");
+        console.log(userEmail.value);
+        document.write(`${userEmail.value}`);
+        // 확인용
+      });
+
+      //4. 마우스 이벤트
+      const box = document.querySelector(".box");
+      box.addEventListener("mouseover", () => {
+        box.style.backgroundColor = "orange";
+      });
+      box.addEventListener("mouseout", () => {
+        box.style.backgroundColor = "gray";
+      });
+
+      // 5. 키보드 이벤트
+      const keyInput = document.querySelector("#keyInput");
+      keyInput.addEventListener("keydown", (e) => {
+        console.log(e.key);
+        console.log(e.keyCode); //키정보
+      });
+
+      // 6. 페이지 로드 이벤트
+      window.addEventListener("load", () => {
+        // 화면 이벤트
+        console.log("페이지 로딩완료");
+      });
+
+      // 7. 화면 Resize 이벤트
+      window.addEventListener("resize", () => {
+        // 화면 사이즈가 600px 보다 작으면
+        if (window.innerWidth < 600) {
+          box.classList.add("active");
+          //600보다 작으면 박스 클래스리스트에 더한다
+        } else {
+          box.classList.remove("active");
+        }
+        // 만약에 윈도우 인너위드
+      });
+      //console.log(window.innerWidth); 확인 완 너비값
+      //console.log(window.innerHeight); 확인완 높이값
+    </script>
+  </body>
+</html>

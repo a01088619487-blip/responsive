@@ -18,3 +18,32 @@ css의 html폰트 를 건들때
 ex- 모바일h1에 따로설정
 
 #2.
+
+
+
+
+
+
+
+
+#00.Java 스크립트 연결하는방법
+1.<Body>
+</Body>
+<script src="js/class.js" ></script>
+
+2.<title></title>
+<script src="js/class.js" deper ></script>
+deper 을 넣어야 함!! 
+
+3.<title></title>
+<script src="js/class.js" ></script>
+
+
+#00. 햄버거 메뉴 (Hamburger Menu) 
+모바일 화면이나 반응형 웹사이트 상단 구석에 있는 세 개의 가로줄 아이콘 (≡)을 의미
+
+유래: 모양이 마치 빵-패티-빵처럼 가로로 층층이 쌓여 있는 햄버거를 닮았다고 해서 붙여진 이름
+
+코딩과의 관계: 보통 이 아이콘을 클릭[터치]했을 때 숨겨져 있던 메뉴 목록이 스르륵 나타나거나 사라지게 만든다.
+(ex) detail.style.display = "block" (메뉴 보이기), 
+display = "none" (메뉴숨기기) 같은 자바스크립트 코드가 바로 이 햄버거 메뉴를 여닫을 때 가장 많이 쓰인다.
