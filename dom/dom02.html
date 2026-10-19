@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 웹요스의 내용 수정 -->
+    <button onclick="innerTxt()">innerText로 표시하기</button>
+    <!-- onclick을 하면 innerTxt함수가 실행 -->
+    <button onclick="innerHm()">innerHTML로 표시하기</button>
+    <h1>현재 시각:</h1>
+    <div id="current">
+      <!-- js출력 -->
+      <strong>시간</strong>
+      <!-- strong 굵기 -->
+    </div>
+    <script>
+      //const current = document.querySelector("#current") 이거대신 다른거 쓰는법은 밑에
+      //querySelector :모든것을 통틀어서 받음 (id면 id .class면 class)
+      const current = document.getElementById("current");
+      //getElementById 아이디를 바로 받는 메서드  id만 가져옴 그래서 #을 안붙여도 됨!!
+      //요소명 .innerText =내용
+      //요소명 .innerHTML = 내용
+      const now = new Date();
+      console.log(now); //Mon Oct 19 2026 10:38:43 console 나옴
+      // innerTxt() 함수
+      function innerTxt() {
+        // 실행코드
+        // console.log("확인"); //innerText로 표시하기 버튼 클릭하면 "확인" console 나옴 그러니 주석표시로
+        // current.innerText = now;  // 밑에 스트롱 넣어서 해보기 그래서 주석으로 
+         //  버튼 누를시  웹에 글자만 'Mon Oct 19 2026 10:38:43' 나옴 
+        current.innerText = `<strong>${now}</strong>`;
+        //  버튼 누를시 웹에 <strong>Mon Oct 19 2026 10:38:43</strong> 나옴
+       
+      }
+
+      // inerHm() 함수
+      function innerHm() {
+        // current.innerHTML = now
+        current.innerHTML = `<strong>${now}</strong>`;
+        // 웹에 글자와 태그(텍스트 굵게)까지 다 나오게 출력 가능하다 
+      }
+    </script>
+  </body>
+</html>

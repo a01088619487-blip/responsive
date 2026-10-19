@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        /* 100%해도 지금은 먹음 */
+        /* display: flex; */
+        display: none;
+        justify-content: center;
+        align-items: center;
+
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .modal-content {
+        position: relative;
+        width: 300px;
+        padding: 30px;
+        border-radius: 20px;
+        background-color: #fff;
+      }
+      /* 닫기버튼 x */
+      .closeBtn {
+        position: absolute;
+        top: -26px;
+        right: 22px;
+        color: #000000;
+        cursor: pointer;
+        background-color: rgb(255, 255, 255);
+        width: 25px;
+        height: 25px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 모달창 -->
+    <!-- 모달 열기 버트 -->
+    <button class="openBtn">모달 열기</button>
+    <!-- 모달: 팝업창 뜨는거 -->
+    <!-- 모달창 -->
+    <div class="modal">
+      <!-- 모달 내용 -->
+      <div class="modal-content">
+        <span class="closeBtn">X</span>
+        <h2>모달창</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+          officiis expedita consequatur iusto ipsa. Aliquid, nihil quisquam?
+          Dignissimos quis alias corporis mollitia? Sit sed temporibus animi,
+          qui architecto distinctio provident?내용
+        </p>
+      </div>
+    </div>
+    <script>
+      const openBtn = document.querySelector(".openBtn");
+      const modal = document.querySelector(".modal");
+      const closeBtn = document.querySelector(".closeBtn");
+      //   모달열기
+      openBtn.addEventListener("click", () => {
+        modal.style.display = "flex";
+      });
+
+      // 모달 닫기
+      closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+      //   배경 클릭시 모달 닫기
+      modal.addEventListener("click", (e) => {
+        console.log(e); // 배경에 클릭햇을때 콘솔에 나옴 스크린샷 2026-10-19 115136 target은 div modal
+        // e.target.style.display = "none";
+        // 배경을 클릭해도 닫기 로 
+
+        // 모달에 조건문을 걸을때
+        if(e.target === modal){
+            // e.target(배경클릭시) 바탕을 찍어도 닫힘 모달 안에잇는거는 안됨
+        e.target.style.display = "none";
+        }
+        
+
+      });
+    </script>
+  </body>
+</html>

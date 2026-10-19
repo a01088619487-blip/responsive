@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .todo {
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .todo.completed {
+        color: blueviolet;
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>오늘 할일</h2>
+    <ul>
+      <li class="todo"><input type="checkbox" checked />청소하기</li>
+      <li class="todo"><input type="checkbox" />장보기</li>
+      <li class="todo"><input type="checkbox" />운동하기</li>
+      <li class="todo"><input type="checkbox" />자바스크립트 복습하기</li>
+    </ul>
+
+    <script>
+      const todos = document.querySelectorAll(".todo");
+      //querySelectorAll는 모든 todo를 담아서 사용하겟다다!
+      // console사용해서 보면  배열처럼 담기지만 'NodeList'인식하겟다
+      //id를 따로주면 편하지않겟냐 생각할수잇지만 그렇게되면 그 갯수만큼
+      // 넣어야하기때문에 비효율적이다
+      console.log(todos);
+      todos.forEach((todo, index) => {
+        console.log(todo, index); //스크린샷 확인 스크린샷 2026-10-19 094524
+        //value= todo(=iteme)
+        const checkBox = todo.querySelector("input");
+        // 체크박스를 태그를 담겟다
+        console.log(checkBox);
+        // 처음엔 li 전체를 담고 거기 안에 checkBox를 담음 스크린샷 2026-10-19 094810
+        checkBox.addEventListener("change", () => {
+          console.log(checkBox.checked);
+          // checkedr 가 인식이 안됨 왜??..
+          // checked를 위에 li에 적어두면 체크가 먼저 되어잇음!
+          // 체크박스에 체크를 하면 true 라고 나타남 / 체크 풀면 false
+          if(checkBox.checked){
+            todo.classList.add("completed")
+          }else{
+            todo.classList.remove("completed");
+
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

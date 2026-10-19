@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #cover2 {
+        
+        border-radius: 50%;
+        border: 3px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="images/easys-1.jpg" alt="이미지" id="cover" />
+    <!-- 클릭하면 아이디 에 cover->cover2번으로 바뀜 -->
+    <script>
+      const cover = document.getElementById("cover");
+      // console.log(cover);
+      // console.log(cover.src);
+      // console.log(cover.alt);//스크린샷 2026-10-19 110649
+
+      cover.addEventListener("mouseover", () => {
+        cover.src = "images/easys-2.jpg";
+        // 이미지 누르면 1번에서 2번으로 바뀜
+        // console.log(cover);
+        cover.id = "cover2";
+      });
+      cover.addEventListener("mouseout", () => {
+        cover.src = "images/easys-1.jpg";
+        // console.log(cover);
+        cover.id = "cover";
+        // 마우스 때면 마우스 1번으로 바뀐당
+      });
+
+       cover.addEventListener("mouseover", (event) => {  //event가 ouseEvernt가 탑제되어잇음
+        // event 이거대해서 더알아보기..? 뭔말인지 잘모르겟다 ㅠㅠ
+        //mouseover 이벤트가 발생하면 -> 마우스가 어디에 올라갔는지, 좌표는 어디인지 등이 담긴 마우스 이벤트 보고서가 들어옵니다.   
+        //click 이벤트가 발생하면 -> 마우스를 몇 번 눌렀는지, 어느 지점을 클릭했는지 등이 담긴 클릭 이벤트 보고서가 들어옵니다.
+        //console.log(event); //스크린샷 2026-10-19 111718
+        console.log(event.target.src); //스크린샷 2026-10-19 112550
+        cover.src = "images/easys-2.jpg";
+        // 이미지 누르면 1번에서 2번으로 바뀜
+        // console.log(cover);
+        cover.id = "cover2";
+      });
+    </script>
+  </body>
+</html>

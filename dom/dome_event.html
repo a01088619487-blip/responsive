@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .imgbox img {
+        width: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul id="menu">
+      <li>회사소개</li>
+      <li>제품소개</li>
+      <li>고객센터</li>
+    </ul>
+    <div id="result">
+      <!-- 내가클릭한 글자 JS출력 -->
+    </div>
+    <!-- 클릭한 이미지 크게보이기 -->
+    <!-- 큰이미지 -->
+    <img src="images/cup-1.png" alt="redcup" id="big" />
+    <!-- 작은이미지 -->
+    <div class="imgbox">
+      <img src="images/cup-1.png" alt="red" />
+      <img src="images/cup-2.png" alt="blue" />
+    </div>
+    <!-- 삭제 버튼 만들기 -->
+     <div id="todo">
+        <li>공부하기<button>삭제</button></li>
+        <li>운동하기<button>삭제</button></li>
+        <li>청소하기<button>삭제</button></li>
+     </div>
+
+    <script>
+      const menuE = document.getElementById("menu");
+      const result = document.getElementById("result");
+      menuE.addEventListener("click", (e) => {
+        console.log(e.target);
+        result.innerHTML += `<p>내가 클릭한 메뉴 : <span> ${e.target.innerText} </span></p>`;
+        // 내가찍은 타겟이 나오게 한당  += 는 누르는 만큼 나오게 스크린샷 2026-10-19 120857
+      });
+      // 1. 탭 메뉴나 네비게이션 바 (GNB)상단 메뉴(회사소개, 제품소개, 고객센터 등)가 여러 개 있을 때,
+      // 메뉴 항목 하나하나마다 전부 addEventListener를 붙이는 대신,
+      // 부모 요소(<ul> 등) 하나에만 이벤트를 딱 하나 걸어둡니다.
+      // 사용자가 어떤 메뉴를 클릭하든 e.target으로 "아, 이 친구가 클릭 되었구나!" 하고
+      // 찰떡같이 알아챌 수 있어서 코드가 아주 깔끔해집니다.
+      // 2. 쇼핑몰 장바구니나 상품 목록 (동적 요소 처리)상품 목록이나 장바구니에 [삭제] 버튼이나
+      // [좋아요] 버튼이 사용자에 의해 동적으로 생겼다 사라질 때 아주 유용합니다.
+      // 새로 생기는 버튼마다 일일이 이벤트를 다시 연결해 줄 필요 없이,
+      // 감싸고 있는 큰 부모에게 맡겨두면 알아서 감지해 줍니다.
+      // 💡 이 코드의 핵심 장점메모리 절약과 효율성: 만약 메뉴가 100개라면 이벤트도 100개를 만들어야 하지만,
+      // 부모에게 딱 1개만 걸어두면 되니 브라우저 부하가 훨씬 줄어듭니다.+=의 마법: result.innerHTML += ...를 사용하면 기존에 있던 내용이 지워지지 않고, 누를 때마다 아래로 차곡차곡 쌓이게(누적되게) 됩니다.
+
+      //작은 이미지 클릭시 큰이미지로 변경
+      const imgbox = document.querySelector(".imgbox");
+      //   const imgs = document.querySelector(".imgbox img")
+      const imgs = document.querySelectorAll(".imgbox img");
+    //   console.log(imgs);
+
+      const big = document.querySelector("#big");
+      //   e.target 속성 이미지 변경
+      //   imgbox.addEventListener("click", (e) => {
+      //     // console.log(e.target.src);
+      //     // 큰이미지 변경
+      //     big.src = e.target.src;
+      //   });
+
+      // querySelectorAll=>nodesList 버전으로 
+      imgs.forEach((img) => {
+        // console.log(img);
+        img.addEventListener("click", () => {
+          big.src = img.src; // 2. arc가 아니라 src로 수정!
+        });
+      });
+
+    //   삭제 버튼
+    const todo = document.getElementById("todo")
+    todo.addEventListener("click",(e)=>{
+        console.log(e.target.tagName);  //li가 타겟이됨
+        if(e.target.tagName === "BUTTON") {
+            e.target.parentElement.remove()
+            // 버튼이라는걸 찍으면 li삭제!!
+        // console.log(e.target.parentElement);
+        
+        }
+        
+    })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom-요소생성</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1>웹 프로그래밍</h1>
+      <!-- p태그 생성 -->
+      <!-- js생성 -->
+      <!-- 여기는 text노드이다...  txt Node가 나옴 -->
+    </div>
+    <div class="notice">
+      <!-- span안에 글자 안녕하세요 -->
+      <!-- <span>안녕하세요</span> -->
+    </div>
+
+    <script>
+      // p태그 생성
+      const newP = document.createElement("p");
+      //createElement: 요소 생성메서드  'p태그' 태그를 만들라는 엘리멘트임
+      console.log(newP); //스크린샷 2026-10-19 100837 확인
+      const txtNode = document.createTextNode(
+        // createTextNode: 글자요소생성 메서드
+        "DOM은 document object model의 줄임말이다.",
+      );
+      console.log(txtNode);
+      //   p태그에 글자를 넣는다.
+      newP.appendChild(txtNode);
+      // .appendChild:자식요소를 더하는 매서드 노드에다가 자식을 더한다
+      console.log(newP); //스크린샷 2026-10-19 101406 확인
+      //container 영역에 p태그 연결
+      document.querySelector("#container").appendChild(newP);
+
+      //  span태그 생성 글자 안녕하세요 생성 해보기
+      // notice 안에 span태그 추가!
+
+      const newS = document.createElement("span");
+      console.log(newS);
+      const textNode = document.createTextNode(
+        // createTextNode-> textnode라 쳐도 나옴
+        "span태그 생성 글자 안녕하세요 생성 해보기",
+      ); // [,]넣는이유는 무엇?
+      // 1..작성하신 코드의 쉼표(,)는 문법적으로 틀린 게 아니라 "여유분으로 남겨둔 쉼표"
+    //   2.. [,]지워도 코드는 똑같이 정상 작동
+      console.log(textNode);
+      newS.appendChild(textNode);
+      console.log(newS);
+      document.querySelector(".notice").appendChild(newS); 
+      //스크린샷 2026-10-19 102744 확인
+    </script>
+  </body>
+</html>
