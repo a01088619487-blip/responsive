@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul,li{
+    list-style: none;
+}
+body{
+    padding: 40px 20px;
+    background-color: rgb(247, 247, 237);
+}
+
+/* 가운데 카드영역 */
+.container{
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.container h1{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+
+/* 입력창 추가 버튼 */
+#taskForm{
+    display: flex;
+    gap: 10px;
+}
+#tasckInput{
+    flex: 1;
+    /* flex위치 : 알아서 하나로 묶는 위치값  */
+    /* with값 100%와 flex 1;은 똑같다 */
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+}
+/*모든 버튼 설정 */
+button{
+    padding: 10px 15px;
+    border: none;
+    background-color: #3478f6;
+    color: #Fff;
+    cursor: pointer;
+}
+button:hover{
+    opacity: 0.8;
+}
+
+/* 자바스크립트로 만든 아이디 및 클래스는 
+자동으로 안뜸 그래서 오타위험이있으니 최대한 
+자바스크립JS에 가서 복사 붙여넣기 하는게 가장 좋다 */
+
+/* 목록 */
+#taskList li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    padding: 12px;
+    background-color: #e6e6e6;
+    border-radius: 6px;
+    
+}
+.task-text{
+    /* 텍스트 길이 조정 */
+    flex: 1;
+    
+}
+.task-text.done{
+    color: #999;
+    text-decoration: line-through;
+    /* done이 true로 바뀌면 글씨가 회색에 줄이 끄여짐.  */
+    /* 스크린샷 2026-10-20 110715 */  
+}
+
+/* 수정 및 삭제버튼 */
+.actions{
+    display: flex;
+    gap: 5px;
+    /* 버튼 공간이(gap) 여기서 떨어지네~ */
+}
+/* 수정버튼 색 */
+.edit-btn{
+background-color: #16a085;
+}
+/* 삭제버튼 색 */
+.delete-btn{
+background-color: #e74c3c;
+}
+
+
+/* 전체 갯수 */
+#count{
+    margin-top: 20px;
+    color: #666;
+    text-align: right;
+    /* 텍스트 우측으로 이동 */
+    
+}
