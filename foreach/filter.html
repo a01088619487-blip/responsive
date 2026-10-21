@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter()</title>
+</head>
+<body>
+    <!-- 조건에 맞는 데이터만 골라내기 메서드 -->
+     <script>
+        const scroes = [45,80,55,90,70]
+        console.log(scroes); //스크린샷 2026-10-21 095252
+        const passed = scroes.filter((scroes)=>{
+            console.log(scroes); //스크린샷 2026-10-21 095425
+            return scroes >=60
+            // 60보다 크거나 같으면 콘솔에 찍어보장
+        })
+        console.log(passed); //스크린샷 2026-10-21 095527
+        // 조건: 5000원 이하인 상품만 고르기
+        const prices=[3000,8000,5000,12000,4000]
+        console.log(prices); // 3000 8000 5000 12000 14000 Array로 담김
+        const result = prices.filter((price)=>{
+            //필터함수는 조건이 필요함 
+            console.log(price);//이제 따로 따로 담김
+            return price <=5000
+        })
+        console.log(result); // 3000,5000,4000 Array로 담김
+        document.write(result) // 화면에 그결과값을 나오게 함
+        
+
+        
+        
+        
+     </script>
+</body>
+</html>

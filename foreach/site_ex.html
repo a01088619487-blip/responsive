@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>foreach() map() filter()를 사용한 상품관리</title>
+    <style>
+      button {
+        padding: 10px 16px;
+        border: none;
+        border-radius: 6px;
+        background-color: #333;
+        color: #fff;
+      }
+      .product-list {
+        width: 90%;
+        max-width: 500px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+      }
+      .product {
+        background-color: antiquewhite;
+      }
+      @media (max-with: 390px) {
+        .product-list {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>온라인 쇼핑몰</h1>
+    <button id="allBtn">전체 상품</button>
+    <button id="saleBtn">할인 가격 보기</button>
+    <button id="filterBtn">5만원 이하</button>
+    <p id="count">
+      <!-- JS 출력 -->
+    </p>
+    <div id="productList" class="product-list">
+      <!-- JS출력 -->
+    </div>
+    <script>
+      // 상품데이터
+      const products = [
+        { id: 1, name: "티셔츠", price: 20000, category: "의류" },
+        { id: 2, name: "청바지", price: 45000, category: "의류" },
+        { id: 3, name: "운동화", price: 80000, category: "신발" },
+        { id: 4, name: "모자", price: 15000, category: "잡화" },
+      ]; //   []안에 넣어야하며 추가는 ,를 넣어서 안에 작성하면된다
+      //   html 요소 가져요기
+      const productList = document.querySelector("#productList");
+      const count = document.querySelector("#count");
+      const allBtn = document.querySelector("#allBtn");
+      const saleBtn = document.querySelector("#saleBtn");
+      const filterBtn = document.querySelector("#filterBtn");
+      // 상품을 화면에 출력하는 공통 함수
+      function renderProducts(items) {
+        //console.log("상품확인"); //이걸 콘솔 확인할려면 {}밖에 renderProducts()넣어야함
+        // 왜?어째서?'ㅅ';; 예전부터궁금햇는뎅 찾아보쟝
+        //이거에 대한 답변은..
+        //function renderProducts(){}처럼 함수를 정의만 해두면 코드가 바로 실행되지않고
+        //함수내부의 console 실행되려면  1.renderProducts()처럼 함수를 직접 호출해야함
+        //2.allBtn.addEventListener("click",()=>{renderProducts(products)}) 처럼 이벤트 글릭등 발생하여 함수가 실행됨
+        // 결국  밑 주석글이 맞넹.. 허헣..
+        //바로 페이지 로드되자마자 콘솔찍히게하고싶으면 함수정의 아래쪽에다가 renderProducts() 로 호출해도된다고함.
+        //바로 호출하면 뭐가 뜰려낭?? ->이건  한참 밑줄에 두고 스크린샷 찍어두겟숨 ->무야 제일첨햇던 콜솔이잖어=;;
+
+        //확인햇으니 주석으롱 console.log(items); // Array배열스크린샷 2026-10-21 103154
+        // dl items를 볼려면 전체상품을 눌러야징 볼수잇음 결국 이걸 볼려면
+        //} allBtn.addEventListener("click",()=>{renderProducts(products)})이게 있어야 쓸수잇낭?.. 어렵뇽..
+
+        // 위에 console.log(items);  콘솔확인햇으니
+        console.log(items);
+        //   1. forEach()
+        items.forEach((product) => {
+          // console.log(product);
+          productList.innerHTML += `
+            <div class="product">
+        <h3>${product.name}</h3>
+        <p>분류 :${product.category}</p>
+        <p class="price">${product.price.toLocaleString()} 원</p>
+      </div>
+            `; //<div class="product"> 이 분류 박스 상자
+        });
+      }
+      //2. map()모든 상품 가격을 10% 할인한 새 배열 공통 함수 만들기
+      function showSaleProduts() {
+        // 초기화 시키는법!!
+        productList.innerHTML = "";
+        //console.log("할인확인"); //할인가격보기 버튼 누르면 콘솔에 나옴
+        const saleProdut = products.map((product) => {
+          //saleProdut=상품 데이터
+          //console.log(products); //버튼 누를시 아이템들 나옴 출력할때는 forEach로도 가능함
+          // 근데 Map은 금액을 변환 시키는거!!!
+          return {
+            ...product, //...은 전개구문(Spread Syntax) 배열내용을 그대로 복사해서 쓰겟다!
+            //{name: produt.name, price: produt.price, category: produt.category }
+            //로 적어야한다 그러니 ...을 씁시당
+            price: product.price * 0.8, //배열 안에서 금액만 변환
+            //콘솔 salePr 확인하면 스크린샷 2026-10-21 110419 금액 바뀐게 확인이 된다
+          };
+          //map은 기존배열을 가지고 새로운 배열을 만드는 메서드
+        });
+        //2개 확인완  console.log(saleProdut); //스크린샷 2026-10-21 110315
+        //실행이되는거 확인한 후
+        renderProducts(saleProdut); // <- saleProduts 넣어야 잡을수잇당 어우..
+        // 이게 없으면 못찾아..멍충아. 누구의 변수고 누구의값을 불러오는지
+        //renderProducts(): 프러덕트(=상품들)을 render(그리다 랜더링하다)
+        //화면에 글자나 그림, 표 등을 그려서 눈에 보이게 만들어주는 과정이다
+      }
+      // 3.  fiter() 5먼원 이하 상품 골라서 새 배열 만들기
+      function showCheapProducts() {
+        //console.log("필터링"); //버튼 클릭시 "필터링" 콘솔이 나옴
+        // 초기화 시키는법!!
+        productList.innerHTML = "";
+
+        const cheapProducts = products.filter((product) => {
+          // console.log(product);
+          return product.price <= 50000;
+        });
+        // console.log(cheapProducts);
+
+        renderProducts(cheapProducts);
+      }
+
+      //renderProducts(); //에에엥 이거 언제 주석으로 한거지;;앤또 왜 주석해야 전체상품 눌럿을때 리스트가 나오냥
+      // 화면이 겹치거나 꼬이면서 충돌(중복 출력)
+
+
+
+
+      //    1.  forEach() 사용 전체 상품 출력한 방법이다
+      allBtn.addEventListener("click", () => {
+        renderProducts(products); //이함수가! allBtn을 눌럿을때 콘솔에 찍히야함!!
+      });
+      // 화면 로딩 될때 바로 출력
+      renderProducts(products);
+
+      //    2.  map()할인적용
+      saleBtn.addEventListener("click", showSaleProduts);
+
+      // 3.  filter()
+      filterBtn.addEventListener("click", showCheapProducts);
+
+      // ??? renderProducts랑 showSaleProduts 차이가 뭔데??
+      // renderProducts : 데이터를 직접 가공하거나 계산하지않음 , HTML 카드로 만들어서 화면에 출력 -출력전용함수
+      // showSaleProduts: map을 사용해서 바뀐데이터들을  반영하여 바꿔주고 끝나면 renderProducts()에게 던져주면서 화면에 송출해~라고함
+
+      //showSaleProduts()는 할인 가격표를 계산해서 준비하는 직원,
+      // renderProducts()는 그 가격표를 받아서 매장 진열대에 촥 진열해 주는 인테리어 담당
+
+      //  상품을 화면에 출력하는 공통 함수
+      //   function renderProducts() {
+      //     console.log("상품확인"); //이게 콘솔에 찍히게 하고 싶엇던거!!
+      //   }
+      //    1. 페이지가 로드되자마자 바로 콘솔에 찍히게 하고 싶다면?
+      //   renderProducts(); //
+      //    2. 버튼을 눌렀을 때만 콘솔에 찍히게 하고 싶다면? (현재 코드 방식)
+      //   allBtn.addEventListener("click", () => {
+      //     renderProducts(); //  이 함수를 클릭 이벤트 콜백 함수 안쪽에 넣으면, 버튼을 '딸깍' 누를 때만 실행
+      //   });
+      //스크린샷 2026-10-21 102853
+    </script>
+  </body>
+</html>

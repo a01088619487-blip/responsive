@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>탭기능</title>
+    <style>
+      .tab-btn {
+        padding: 10px;
+        cursor: pointer;
+        border: 1px solid #015c0d;
+        background-color: rgb(155, 182, 127);
+        margin-bottom: 10px;
+      }
+      .tab-btn.active {
+        border-color: crimson;
+        background-color: rgb(255, 223, 255);
+      }
+      .tab-content {
+        display: none;
+        width: 700px;
+        border: 1px solid #ccc;
+        padding: 15px;
+      }
+      .tab-content.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 탭버튼 -->
+    <button class="tab-btn">탭 1</button>
+    <button class="tab-btn">탭 2</button>
+    <button class="tab-btn">탭 3</button>
+    <!-- 탭내용 -->
+    <div class="tab-content">탭 1내용</div>
+    <div class="tab-content">탭 2내용</div>
+    <div class="tab-content">탭 3내용</div>
+    <script>
+      const tabs = document.querySelectorAll(".tab-btn"); //버튼 다 담을때는 ALL을 사용해야함 안그러면 하나만 담아짐
+      // 같은 클래스를 쿼리셀렉트'올'로 해서 다 같이 담아낸당
+      // console.log(tabs);
+      const contents = document.querySelectorAll(".tab-content");
+      //console.log(contents[2]);  contents[2];<- []숫자 0부터시작  // 내가원하는 index번호를 알수잇음!!
+
+      tabs.forEach((tab, index) => {
+        // console.log(tab,index);
+
+        tab.addEventListener("click", () => {
+          // 버튼 활성화 초기화 (버튼 active된것들을 없앨거다)
+          tabs.forEach((t) => {
+            //console.log(t);
+            t.classList.remove("active"); //클릭한 탭버튼 active이 있으면 active지운다!!
+          });
+          // 내용 활성화 초기화(내용 active된것들을 없앨거다)
+          contents. forEach((c)=>{
+            c.classList.remove("active") //클릭한 탭컨텐츠내용(탭버튼)에 active 있으면 active지운다!!
+          })
+          //    해당하는 탭 활성화
+          tab.classList.add("active"); //클릭한 탭버튼 active없으면 active생성!
+          //해당하는 내용 활성화
+          //contents[index];
+          //  console.log(index); 1번은 0 2번은 1 3번은 2로 찍힌다
+          //console.log(contents[index]); //contents[0] 누르면 탭 1내용
+          contents[index].classList.add("active"); //클릭한 탭컨텐츠내용(탭버튼)에 active없으면 active생성!
+        });
+      });
+      tabs[0].classList.add("active")
+      contents[0].classList.add("active")// <- active을 넣는 장소 정할수잇음 JS으로도 
+    </script>
+  </body>
+</html>
