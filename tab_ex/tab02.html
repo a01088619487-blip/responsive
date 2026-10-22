@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>탭기능2</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      /* 메뉴 */
+      .menu {
+        width: 50%;
+        max-width: 600px;
+        min-width: 300px;
+        /* max,min은 반응형 할때 편하당~ */
+        display: flex;
+        margin: 50px auto;
+        background-color: rgb(255, 226, 188);
+      }
+      .menu-item {
+        flex: 1;
+        /* flex로 gap이 필요가없겟넹?? */
+        text-align: center;
+        padding: 10px;
+        transition: all 0.3s;
+      }
+      .menu-item:hover,
+      .menu-item.active {
+        background-color: rgb(255, 182, 73);
+        cursor: pointer;
+      }
+
+      /* 탭 내용  */
+      .card-container {
+        width: 60%;
+        max-width: 700px;
+        margin: auto;
+      }
+      .card {
+        display: none;
+        gap: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+      .card.active {
+        display: flex;
+      }
+      .card li {
+        flex: 1;
+      }
+      /* image */
+      .card img {
+        width: 100%;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 더미데이터 탭메뉴 -->
+    <div class="menu" id="menu">
+      <!-- js출력 -->
+    </div>
+    <!-- 카드영역 -->
+    <div class="card-container" id="cardContainer">
+      <!-- css할때는 class로 할수도 잇다 그래서 class랑 id 둘다 만드는사람잇다고 -->
+
+      <!--js출력-->
+    </div>
+    <script>
+      //더미데이터
+      // 데이터 분류를 시켜준다.
+
+      const menuData = [
+        {
+          title: "메뉴 1",
+          product: [
+            { image: "images/frame1.png", name: "아메리카노", price: 3000 },
+            { image: "images/frame2.png", name: "바닐라라떼", price: 6500 },
+            { image: "images/frame3.png", name: "모카라떼", price: 6000 },
+          ],
+        }, // ex-나에대한 배열을 넣을때 객체로 넣어서 만든다
+        {
+          title: "메뉴 2",
+          product: [
+            { image: "images/frame3.png", name: "파인트", price: 6500 },
+            { image: "images/frame2.png", name: "쿼터", price: 8500 },
+            { image: "images/frame1.png", name: "패밀리", price: 16000 },
+          ],
+        },
+        {
+          title: "메뉴 3",
+          product: [
+            {
+              image: "images/frame2.png",
+              name: "아이스크림케이트",
+              price: 35000,
+            },
+            {
+              image: "images/frame3.png",
+              name: "찰쌀모찌아이스크림",
+              price: 6500,
+            },
+            { image: "images/frame1.png", name: "생일초", price: 1500 },
+          ],
+        },
+      ];
+      //   html요소가져오기
+      const menu = document.querySelector("#menu");
+      const cardContainer = document.querySelector("#cardContainer");
+      //    탭메뉴 만들기
+      //   menu.innerHTML= menuData.map().join("") //기본문법 , 스크린샷 2026-10-22 102616
+      // join자체가(forEach랑 비슷하나 다름) 안에 하나, 안에하나 하나씩 꺼내온다함. 그리고 +를 쓰지않는 문법이다.
+      menu.innerHTML = menuData
+        .map((item, index) => {
+          // console.log(item,index); //스크린샷 2026-10-22 095641
+          // 결과값을 반환을 해야한다 map, fiter은 return 필수 계체가 없으면 없어도됨
+
+          //첫번째 메뉴가 활성화되게 하는 방법이 2가지가 잇다. 예전엔 "active" 넣어서 사용한 방법
+          return `
+                     <div class="menu-item ${index === 0 ? "active" : ""}">${item.title}</div>
+      `; //return으로 송출이 되는건가??..<div class="menu-item ">${item.title}</div> 스크린샷 2026-10-22 100047
+          //<div class="menu-item ${index === 0 ? "active" : ""}">${item.title}</div> 스크린샷 2026-10-22 101502 눌럿을때 반응은 아직 한거 아님
+        })
+        .join("");
+      //탭 내용 만들기
+      // 다른함수 안이라서 item 중복으로 가능
+      cardContainer.innerHTML = menuData
+        .map((item, index) => {
+          //   console.log(item.index);
+
+          return `
+                  <ul class="card ${index === 0 ? "active" : ""}" >
+                      ${item.product
+                        .map((product) => {
+                          //console.log(product); 스크린샷 2026-10-22 103604
+                          return `
+                          <li>
+                          <img src="${product.image}" alt="${product.name}">
+                          <h2>${product.name}</h2>
+                          <p>가격 :${product.price.toLocaleString()} 원</p>
+                              </li>`;
+                        })
+                        .join("")}
+             </ul>
+                  `; //스크린샷 2026-10-22 104134
+        })
+        .join("");
+      // 생성된 탭 메뉴와 탭 내용 가져오기
+      const menuItems = document.querySelectorAll(".menu-item");
+      const cards = document.querySelectorAll(".card");
+      //console.log(menuItems);//스크린샷 2026-10-22 105422
+      //console.log(cards); //스크린샷 2026-10-22 105446
+
+      // 탭에 맞는 카드 보여주는 함수 - 그메뉴에 맞춰서 클릭햇을때 나오는 서브메뉴
+      function showCard(index) {
+        //console.log(index); //스크린샷 2026-10-22 110211 메뉴 1뉼럿을때 0번이 찍히는거 확인함
+        //모든 탭의 active 제거
+        menuItems.forEach((item) => {
+          //console.log(item);
+          item.classList.remove("active");
+        });
+        // 모든 탭 내용의 active 제거
+        cards.forEach((card) => {
+          //console.log(card);
+          card.classList.remove("active");
+        });
+        // 클릭한 탭과 같은 번호의 카드활성화
+        menuItems[index].classList.add("active");
+        cards[index].classList.add("active");
+      }
+      // 탭 메뉴 클릭시
+      menuItems.forEach((item, index) => {
+        //console.log(item,index); //스크린샷 2026-10-22 105815
+
+        item.addEventListener("click", () => {
+          showCard(index);
+        });
+      }); //메뉴 1을 누르면 메뉴0을 가져올거다!
+   //show에 대한궁금증이 생김
+   //앞에 show를 붙이고 뒤에 내가 알아보기 쉬운 단어나 이름을 붙여서 내 마음대로 함수 이름을 지어도 아무 문제가 없다
+   //ex-showMenu(index),showPopup(),showImage() 등등...
+   //주의할점!!! -뒤에 붙는 단어는 첫 글자를 대문자로! (카멜 케이스) ---가독성을 위해서 쓰는 약속 인거..귀찮넹.. 그래도이거에 익숙해져야겟징
+   
+    </script>
+  </body>
+</html>

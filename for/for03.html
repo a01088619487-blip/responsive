@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문으로 만든 구구단</title>
+</head>
+<body>
+    <script>
+        for(let go =2; go <= 9; go++){
+            document.write(`<h3> ${go} 단 </h3>`)
+            for(let d = 1 ; d<=9; d++){
+                document.write(`${go} X ${d} = ${go * d}<br>`)
+            }
+        }
+    </script>
+</body>
+</html>

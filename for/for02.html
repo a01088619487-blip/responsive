@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="list">
+      <!-- js출력 -->
+    </ul>
+    <script>
+      const products = ["사과", "바나나", "딸기", "포도"];
+      const proList = document.querySelector("#list");
+      for (let i = 0; i < products.length; i++) {
+        //length:길이
+        //console.log(i);
+        //console.log(products[3]); //0포도~3포도 까지출력
+        proList.innerHTML += `<li>${products[i]}</li>`
+      }// 목록 ㆍ사과 ㆍ바나나 ㆍ딸기 ㆍ포도 이렇게 출력 
+    </script>
+  </body>
+</html>
