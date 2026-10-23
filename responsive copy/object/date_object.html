@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>현재시간</title>
+  </head>
+  <body>
+    <p>
+      현재 시각 :
+      <strong class="display">
+        <!-- js출력 [자바스크립] -->
+
+  
+    </strong>
+    </p>
+    <!-- strong이나 spen 으로도 사용가능 -->
+     <script>
+        // 현재 시간을 나타내는 함수
+        // function name[무슨함수인지에대한 이름!](params[객체기능]) {}
+        function displayNow() {
+            // console.log("확인"); 밑에 diplayNow() 로 통해 적용됫는지 확인 후 주석으로 변경함
+            let now = new Date();
+            // console.log(now) // 금일 날짜 나온거 확인후 주석변경
+            const currentTime = now.toLocaleTimeString();// now안에 잇는 시간을 보겟다
+            // console.log(currentTime); //오전 10:52:24출력 확인후 주석변경
+            const display = document.querySelector(".display"); 
+            // console.log(display); // <strong class="display">오전 10:57:10</strong>
+            display.innerHTML = `${currentTime}`; 
+            
+        }
+        // 함수 호출 
+        // displayNow(); 확인후 주석으로   // 위에 console.log(); 을 보기위해 
+        
+        // setInterval() : 일정시간 간격으로 반복 실행하는 함수
+        setInterval(displayNow, 1000 );  //1000이 자바스크립엔 1초임
+
+        //궁금한게 HTML엔 잇는 상자는 현재 Strong 이거나 disply박스를 만들고 자바스크립에서 displayNow
+        //를 만들고 나서 따로 추가하거나 바꾸거나 한게 없어도 시간이 출력되는 이유가 뭐임?? 
+     </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경색변경</title>
+</head>
+<body>
+    <button class="btn">색변경</button>
+    <script>
+        const btn =document.querySelector(".btn");
+        // id로 만들엇으면 #btn으로
+        // console.log(btn);
+        btn.addEventListener("click" , ()=>{
+            //function 함수를 [=>] 사용
+            // console.log("click"); 버튼 클릭햇을때 콘솔에 클릭이 나오는지 확인
+            //rgb(255,255,255)//화이트 최대값 rgb(0,0,0)  블랙 최소값
+            const r = Math.floor(Math.random() *256)  
+                // console.log(r); //floor로 통해서 소수점은 안나오게됨
+            const g = Math.floor(Math.random() *256) 
+            // console.log(g);
+            const b = Math.floor(Math.random() *256)
+            // console.log(b);     
+            const bgColor = `RGB(${r},${g},${b})`
+            // console.log(bgColor);
+            document.body.style.backgroundColor=bgColor
+            // body에 있는 스타일로 통하여 백그라운드 칼라를 하겟다
+        });
+    </script>
+    <!-- 결과 :<body style="background-color: rgb(*, *, *);">이 만들어짐 -->
+        
+</body>
+</html>

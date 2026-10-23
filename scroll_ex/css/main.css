@@ -16,11 +16,34 @@ html{
 section {
   height: 100vh;
   display: flex;
+  
   justify-content: center;
   align-items: center;
   font-size: 60px;
   font-weight: bold;
+ 
 }
+
+/* go top */
+#goTop{
+   /* 첫 스크롤 0에서는  */
+   display: none;
+  position: fixed; /* 스크롤 움직여도 고정하는것 */
+  bottom: 30px;
+  right: 38px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 0;
+  /* 버튼자체라 0  을줫당*/
+  padding: 10px;
+  background-color: #024425;
+  color: #fff;
+  cursor: pointer;
+}
+#goTop.active{
+display: flex;
+}
+
 #home {
   background-color: rgb(251, 207, 150);
 }

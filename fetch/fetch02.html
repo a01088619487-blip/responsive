@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="result">
+      <!-- js출력 -->
+    
+    </div>
+    <script>
+        fetch("product.json")
+
+        .then((res)=>{
+        //   console.log(res);
+          return res.json();
+
+        })
+
+      .then((data)=>{
+       //console.log(data); 에리어 에 들어가잇는거 확인함
+        
+        // const htmlEl = data.map().join("");
+        // result.innerHTML=htmlEl    <d이렇게 두개를 넣어서 사용하는방법이있고 
+        // 밑에줄 처럼 사용하는방법도 있다 
+          const result = document.querySelector("#result")
+          result.innerHTML = data
+          .map((item)=>{
+            // 내용 출력 확인함console.log(item);
+            return `
+               <div class="card">
+        <h3>상품명 :${item.name}</h3>
+        <p>가격 :${item.price}</p>
+       </div>`
+          }).join("");
+      })
+      .catch((error)=>{
+        // console.log(error); 오류 안나는거 확인함 
+
+        });
+        // 흠.. 왜 catcht는 자동으로 안뜨징
+    </script>
+  </body>
+</html>

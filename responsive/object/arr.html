@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array 객체</title>
+  </head>
+  <body>
+    <script>
+      // Array 여러데이터를 순서대로 관리
+      const arr = [1, 2, 3, 4];
+      console.log(arr);
+      //   1.length 속성
+      console.log(arr.length); //결과 4
+      //2.push():배열 끝 요소를 추가하는 메서드
+      arr.push(8);
+      console.log(arr); //결과 1,2.3.4,8
+      //3.pop():배열 끝 요소를 제거하눈 메서드
+      arr.pop();
+      console.log(arr); //결과 1,2,3,4  [8이 제거가됨]
+      //4.shift() : 배열 첫 요소 제거
+      arr.shift(); //결과 2,3,4 출력됨
+      console.log(arr);
+      // 5.unshift() : 배열 앞에 요소를 추가하는 메서드
+      arr.unshift(7);
+      console.log(arr); //결과 7,2,3,4
+      //6.indexof() : 요소를 위치 반환[index번호]
+      console.log(arr.indexOf(2)); //결과 1나옴
+      console.log(arr.indexOf(3)); // 결과 2나옴
+      //7.slice() :배열 일부 반환
+      //slice(시작인덱스(포함),끝인인덱스(미포험))
+      console.log(arr.slice(1, 4)); // [7, 2, 3, 4]->[2, 3,4]
+      //1번의 2 4번은 4
+      //8.splice():배열 요소추가/삭제
+    //   splice(시작인덱스[어디서부터],삭제갯수,추가할값1,추가할값2.....)
+    console.log(arr);
+    arr.splice(1,2,44,50,100)//[7, 44, 50, 100, 4]
+    // 1은 포함,2개는 삭제 [2,3]그리고 44,50,100추가되고 4가 나온다
+    console.log(arr);
+    //9.join() :배열을 문자열로 변환
+    console.log(arr.join("***"));//7***44***50***100***4
+    //10.forEach() : 각 요소에 대해 함수 실행
+    arr.forEach((a)=>{
+        //a라고 임시로 넣은거임
+        console.log(a); //a배열안에잇는 요소를 하나하나를 꺼내서 가지고 온것
+        document.write(`<p>${a}</p>`) //html 화면으로 통해서 요소[index]보여줌
+    }) 
+    // forEach 진짜 많이쓰임 잘 기억할것 ★★★
+  
+    </script>
+  </body>
+</html>
